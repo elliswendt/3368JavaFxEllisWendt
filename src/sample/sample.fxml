@@ -1,0 +1,36 @@
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.CheckBox?>
+<HBox fx:controller="sample.Controller" xmlns:fx="http://javafx.com/fxml" alignment="center">
+    <ListView fx:id="employeeListView"/>
+    <VBox>
+        <HBox>
+            <Label text="First Name" prefWidth="150" />
+            <TextField prefWidth="150" fx:id="firstNameTextField"/>
+        </HBox>
+        <HBox>
+            <Label text="Last Name" prefWidth="150" />
+            <TextField prefWidth="150" fx:id="lastNameTextField"/>
+        </HBox>
+        <HBox>
+            <Label text="Is Active" prefWidth="150" />
+            <CheckBox prefWidth="150" fx:id="isActiveCheckBox"/>
+        </HBox>
+        <HBox>
+            <Label text="Gender" prefWidth="150" />
+            <TextField prefWidth="150" fx:id="genderTextField" />
+        </HBox>
+        <HBox>
+            <Label text="Something Else" prefWidth="150" />
+            <TextField prefWidth="150" fx:id="somethingElseTextField"/>
+        </HBox>
+    </VBox>
+</HBox>
