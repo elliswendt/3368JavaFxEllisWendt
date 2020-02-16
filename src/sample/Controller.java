@@ -1,13 +1,17 @@
 package sample;
 
+import com.jfoenix.controls.JFXButton;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 
+import javax.swing.*;
 import java.awt.*;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -25,6 +29,12 @@ public class Controller implements Initializable
     private CheckBox isActiveCheckBox;
     @FXML
     private TextField genderTextField;
+    @FXML
+    private JFXButton deleteSelectedButton;
+    @FXML
+    private JFXButton clearButton;
+    @FXML
+    private JFXButton addNewButton;
 
     @Override
     public void initialize(URL location, ResourceBundle resources)
@@ -39,8 +49,37 @@ public class Controller implements Initializable
                     genderTextField.setText(((Employee)selectedItem).gender);
                 }
                 );
+        deleteSelectedButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                int selectedIdx = employeeListView.getSelectionModel().getSelectedIndex();
+                if (selectedIdx != -1){
+                    employeeListView.getItems().remove(selectedIdx);
+                }
+            }
+        });
 
+        clearButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                firstNameTextField.clear();
+                lastNameTextField.clear();
+                isActiveCheckBox.setSelected(false);
+                genderTextField.clear();
+            }
+        });
         ObservableList<Worker> items = employeeListView.getItems();
+        addNewButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                Employee employee = new Employee();
+                employee.firstName = firstNameTextField.getText();
+                employee.lastName = lastNameTextField.getText();
+                employee.isActive = isActiveCheckBox.isSelected();
+                employee.gender = genderTextField.getText();
+                items.add(employee);
+            }
+        });
         Employee employee1 = new Employee();
         employee1.firstName = "Robert";
         employee1.lastName = "Smith";
