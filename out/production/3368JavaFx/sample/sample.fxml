@@ -9,8 +9,21 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.CheckBox?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
 <HBox fx:controller="sample.Controller" xmlns:fx="http://javafx.com/fxml" alignment="center">
-    <ListView fx:id="employeeListView"/>
+    <VBox>
+        <HBox>
+            <ListView fx:id="employeeListView"/>
+        </HBox>
+        <HBox>
+            <JFXButton text="Delete Selected" prefWidth="150" fx:id="deleteSelectedButton"/>
+        </HBox>
+    </VBox>
     <VBox>
         <HBox>
             <Label text="First Name" prefWidth="150" />
@@ -31,6 +44,14 @@
         <HBox>
             <Label text="Something Else" prefWidth="150" />
             <TextField prefWidth="150" fx:id="somethingElseTextField"/>
+        </HBox>
+        <HBox>
+            <VBox>
+                <JFXButton text="Clear" prefWidth="150" fx:id="clearButton" />
+            </VBox>
+            <VBox>
+                <JFXButton text="Add New" prefWidth="150" fx:id="addNewButton" />
+            </VBox>
         </HBox>
     </VBox>
 </HBox>
